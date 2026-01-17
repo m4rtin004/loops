@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+int main() {
+    int a, b, original_a, original_b;
+
+    printf("Enter two positive integers (A and B): ");
+    if (scanf("%d %d", &a, &b) != 2) {
+        printf("Invalid input.\n");
+        return 1;
+    }
+
+    original_a = a;
+    original_b = b;
+
+    if (a <= 0 || b <= 0) {
+        printf("Please enter positive numbers only.\n");
+        return 1;
+    }
+
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+
+    printf("The Greatest Common Divisor of %d and %d is: %d\n", original_a, original_b, a);
+
+    return 0;
+}
