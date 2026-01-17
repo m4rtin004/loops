@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+int main() {
+    int current, previous;
+
+    printf("Enter a set of numbers in ascending order (enter a smaller number to stop):\n");
+
+    if (scanf("%d", &previous) != 1) {
+        return 1;
+    }
+
+    while (1) {
+        printf("Enter next number: ");
+        if (scanf("%d", &current) != 1) {
+            break;
+        }
+
+        if (current < previous) {
+            printf("Sequence broken! %d is smaller than %d.\n", current, previous);
+            break; // Exit the loop
+        }
+
+        previous = current;
+    }
+
+    printf("Program finished.\n");
+    return 0;
+}
